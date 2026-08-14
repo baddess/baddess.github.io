@@ -6,201 +6,106 @@
     <title>Naima's Homemade Cake</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
+            background-color: lightgray;
             margin: 0;
+            padding: 32px 4%;
             font-family: Arial, sans-serif;
             color: #222;
-            background-color: #fff;
         }
 
-        .container {
-            max-width: 1700px;
-            margin: auto;
-            padding: 35px 50px;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
-        .breadcrumb a {
-            color: #222;
-            text-decoration: underline;
-        }
-
-        .arrow {
-            color: #777;
-        }
-
-        /* Shop information */
-        .shop-info {
+        .shop-container {
             display: flex;
             align-items: flex-start;
-            gap: 35px;
-            position: relative;
+            gap: 55px;
         }
 
         .shop-image {
-            width: 240px;
-            height: 240px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius: 25px;
         }
 
-        .details {
-            flex: 1;
+        .shop-info {
+            padding-top: 5px;
         }
 
-        .category {
+        .categories {
             font-size: 22px;
-            color: #777;
-            margin-bottom: 20px;
+            color: black;
+            margin-bottom: 10px;
         }
 
         .shop-name {
-            font-size: 48px;
-            margin: 0 0 20px;
-            font-weight: 700;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0 0 35px 0;
         }
 
-        /* Status badges */
-        .badges {
+        .status-container {
             display: flex;
-            gap: 12px;
             align-items: center;
-            margin-bottom: 25px;
+            gap: 20px;
         }
 
-        .closed {
-            background-color: #ffe0d8;
-            color: #c93612;
-            padding: 9px 18px;
-            border-radius: 25px;
-            font-size: 18px;
+        .open {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #dcf7e5;
+            color: #16833d;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 15px;
             font-weight: bold;
         }
 
-        .super {
-            background-color: #fff0ea;
-            color: #222;
-            padding: 9px 18px;
-            border-radius: 25px;
-            font-size: 18px;
+        .green-circle {
+            width: 15px;
+            height: 15px;
+            background-color: #19d13b;
+            border: 2px solid #000;
+            border-radius: 50%;
+        }
+
+        .cake-shop {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #fff0eb;
+            padding: 0.1px 15px;
+            border-radius: 35px;
+            font-size: 15px;
             font-weight: bold;
-            cursor: pointer;
         }
 
-        /* Rating */
-        .rating {
-            font-size: 21px;
-        }
-
-        .star {
-            color: #ff9d00;
-            font-size: 25px;
-        }
-
-        /* Favourite button */
-        .favourite {
-            position: absolute;
-            right: 0;
-            top: 170px;
-
-            background: white;
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 20px 30px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .favourite:hover {
-            background-color: #f5f5f5;
-        }
-
-        /* Popup */
-        .popup {
-            display: none;
-            position: absolute;
-            left: 400px;
-            top: 130px;
-            width: 500px;
-            background: white;
-            padding: 28px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.18);
-            z-index: 10;
-        }
-
-        .popup h2 {
-            margin-top: 0;
+        .trophy {
             font-size: 28px;
         }
 
-        .popup p {
-            font-size: 19px;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .close-popup {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        /* Deals */
-        .deals {
-            margin-top: 50px;
-            padding-top: 40px;
-            border-top: 1px solid #ddd;
-        }
-
-        .deals h2 {
-            font-size: 38px;
-        }
-
-        .deal-card {
-            display: inline-block;
-            padding: 20px;
-            background: #fff4ef;
-            border-radius: 15px;
-            margin-right: 15px;
-            font-size: 20px;
-        }
-
-        @media (max-width: 800px) {
-            .container {
-                padding: 20px;
+        @media (max-width: 900px) {
+            .shop-container {
+                flex-direction: column;
+                gap: 30px;
             }
 
-            .shop-info {
-                flex-direction: column;
+            .shop-image {
+                width: 100%;
+                max-width: 410px;
+                height: auto;
+            }
+
+            .categories {
+                font-size: 25px;
             }
 
             .shop-name {
-                font-size: 36px;
+                font-size: 40px;
             }
 
-            .favourite {
-                position: static;
-            }
-
-            .popup {
-                left: 10px;
-                top: 300px;
-                width: calc(100% - 20px);
+            .status-container {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -208,123 +113,45 @@
 
 <body>
 
-<div class="container">
+    <div class="shop-container">
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <a href="#">Homepage</a>
-        <span class="arrow">›</span>
-
-        <a href="#">Chattogram</a>
-        <span class="arrow">›</span>
-
-        <span>Naima's Homemade Cake</span>
-    </div>
-
-
-    <!-- Shop information -->
-    <div class="shop-info">
-
-        <!-- Your shop image -->
-        <img
-            src="image1.jpeg"
-            alt="Naima's Homemade Cake"
+        <img 
+            src="logo.jpeg" 
+            
             class="shop-image"
         >
 
-        <div class="details">
+        <div class="shop-info">
 
-            <div class="category">
+            <!-- Categories -->
+            <div class="categories">
                 Cakes · Dessert · Fast Food
             </div>
 
+            <!-- Shop Name -->
             <h1 class="shop-name">
                 Naima's Homemade Cake
+                
             </h1>
 
-            <div class="badges">
+            <!-- Open + Super Restaurant -->
+            <div class="status-container">
 
-                <span class="closed">
-                    🔴 CLOSED
-                </span>
+                <div class="open">
+                    <span class="green-circle"></span>
+                    OPEN
+                </div>
 
-                <span class="super" onclick="showPopup()">
-                    🏆 Super Restaurant
-                </span>
+                <div class="cake-shop">
+                    <span class="trophy">🏆</span>
+                    Cake Shop
+                </div>
 
-            </div>
-
-            <div class="rating">
-                <span class="star">★</span>
-                <strong>4.8/5</strong>
-                <span>(100+)</span>
             </div>
 
         </div>
 
-
-        <!-- Favourite -->
-        <button class="favourite" onclick="addFavourite()">
-            ♡ &nbsp; Add to favourites
-        </button>
-
-
-        <!-- Popup -->
-        <div class="popup" id="restaurantPopup">
-
-            <span class="close-popup" onclick="closePopup()">
-                ×
-            </span>
-
-            <h2>What is Super Restaurant?</h2>
-
-            <p>
-                This restaurant has a proven track record
-                of great quality and service.
-            </p>
-
-        </div>
-
     </div>
-
-
-    <!-- Deals -->
-    <div class="deals">
-
-        <h2>Available deals</h2>
-
-        <div class="deal-card">
-            🎂 Cake Special Offer
-        </div>
-
-        <div class="deal-card">
-            🍔 Fast Food Combo
-        </div>
-
-        <div class="deal-card">
-            🍛 Kacchi Biryani Offer
-        </div>
-
-    </div>
-
-</div>
-
-
-<script>
-
-    function showPopup() {
-        document.getElementById("restaurantPopup").style.display = "block";
-    }
-
-    function closePopup() {
-        document.getElementById("restaurantPopup").style.display = "none";
-    }
-
-    function addFavourite() {
-        alert("Added to favourites ❤️");
-    }
-
-</script>
 
 </body>
 </html>
